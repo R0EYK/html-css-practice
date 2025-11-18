@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Roboto", sans-serif;
   background-color: hsl(234, 29%, 20%);
   margin: 0;
   padding: 0;
@@ -10,34 +12,44 @@ body {
   justify-content: center;
 }
 
-.sign-up-box {
+.sign-up-box.active {
   background-color: aliceblue;
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: space-evenly;
-  height: 80vh;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  align-items: center;
+  justify-items: center;
+  border-radius: 15px;
   width: 60vw;
-  border-radius: 20px;
+  height: 80vh;
+  grid-template-areas: "text-side image-side";
 }
-title {
-  font-size: 2rem;
-  font-weight: bold;
-}
-.text-side h1 {
-  font-size: 3rem;
-}
-P {
-  font-size: 0.9rem;
-  color: hsl(234, 29%, 20%);
+.sign-up-box {
+  display: none;
 }
 
+.text-side {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  width: fit-content;
+  grid-area: text-side;
+}
+.text-side h1 {
+  font-size: clamp(0.9rem, 3vw, 3rem);
+}
+.text-side P {
+  font-size: clamp(0.6rem, 1vw, 1.1rem);
+}
+
+.title {
+  align-items: center;
+  justify-items: center;
+}
 .sign-up-box img {
-  height: auto;
-  max-height: 75vh;
-  max-width: 30vw;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  grid-area: image-side;
+  height: 90%;
+  max-width: 90%;
+  border-radius: 10px;
 }
 
 .checkMarks img {
@@ -49,19 +61,12 @@ P {
   align-items: center;
   gap: 10px;
 }
-.text-side {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-evenly;
-  width: 50%;
-  padding: 0 20px;
-}
+
 .email-section {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 100%;
+  width: 90%;
 }
 
 .email-section h4 {
@@ -74,6 +79,65 @@ P {
 .email-section button {
   background-color: hsl(234, 29%, 20%);
   color: white;
+  height: 45px;
   padding: 10px;
   cursor: pointer;
+  border-radius: 5px;
+}
+
+.allCheckMarks {
+  margin-bottom: 20px;
+}
+
+.successMessege.active {
+  display: none;
+}
+
+.successMessege {
+  background-color: white;
+  position: absolute;
+  text-align: center;
+  z-index: 3;
+}
+
+@media (max-width: 500px) {
+  .sign-up-box {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 110vh;
+    border-radius: 0;
+    padding: 0;
+  }
+  .sign-up-box img {
+    position: sticky;
+    content: url("assets/images/illustration-sign-up-mobile.svg");
+    height: 49vh;
+    width: 100vw;
+    border-radius: 0;
+    max-width: 100%;
+  }
+
+  .text-side {
+    align-items: right;
+    text-align: center;
+  }
+  .text-side h1 {
+    font-size: clamp(1.5rem, 8vw, 3rem);
+  }
+  .text-side p {
+    font-size: clamp(0.8rem, 3vw, 1.1rem);
+  }
+  .email-section h4 {
+    text-align: left;
+  }
+
+  .email-section {
+    width: 100%;
+  }
+  .checkMarks img {
+    content: none;
+    height: 20px;
+    width: 20px;
+  }
 }
