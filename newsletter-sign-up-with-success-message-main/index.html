@@ -26,7 +26,10 @@
       <h1>Thanks for subscribing!</h1>
       <p>
         A confirmation email has been sent to
-        <strong>
+        <b>ash@loremcompany.com.</b> Please open it and click the button inside
+        to confirm your subscription.
+      </p>
+      <button class="dismiss" type="button">Dismiss message</button>
     </div>
 
     <div class="sign-up-box">
@@ -54,8 +57,11 @@
         </div>
 
         <div class="email-section">
-          <h4>Email address</h4>
-          <input type="email" placeholder="email@company.com" />
+          <div class="title-and-error">
+            <h4>Email address</h4>
+            <h4 class="error-message">Valid email required</h4>
+          </div>
+          <input class="email" type="email" placeholder="email@company.com" />
           <button class="submit" type="submit">
             Subscribe to monthly newsletter
           </button>
@@ -65,11 +71,3 @@
     <script src="script.js"></script>
   </body>
 </html>
-
-<!-- Sign-up form start -->
-
-<!-- Success message start -->
-<!--   Thanks for subscribing! A confirmation email has been sent to
-      ash@loremcompany.com. Please open it and click the button inside to
-confirm your subscription. Dismiss message
-     Success message end-->

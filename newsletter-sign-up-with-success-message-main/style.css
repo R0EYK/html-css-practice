@@ -12,18 +12,18 @@ body {
   justify-content: center;
 }
 
-.sign-up-box.active {
+.sign-up-box {
   background-color: aliceblue;
   display: grid;
   grid-template-columns: 50% 50%;
   align-items: center;
   justify-items: center;
   border-radius: 15px;
-  width: 60vw;
-  height: 80vh;
+  width: 60%;
+  height: auto;
   grid-template-areas: "text-side image-side";
 }
-.sign-up-box {
+.sign-up-box.active {
   display: none;
 }
 
@@ -35,10 +35,10 @@ body {
   grid-area: text-side;
 }
 .text-side h1 {
-  font-size: clamp(0.9rem, 3vw, 3rem);
+  font-size: clamp(0.7rem, 4vw, 3rem);
 }
 .text-side P {
-  font-size: clamp(0.6rem, 1vw, 1.1rem);
+  font-size: clamp(0.6rem, 1vw, 1.2rem);
 }
 
 .title {
@@ -72,9 +72,22 @@ body {
 .email-section h4 {
   margin: 0;
 }
-.email-section input {
+.email-section .email {
+  opacity: 0.7;
+  height: 30px;
+  border: solid 1px gray;
+  border-radius: 5px;
+}
+.email-section .email.active {
+  color: red;
+  background-color: rgba(233, 157, 157, 0.511);
   opacity: 0.7;
   padding: 10px;
+  border: red;
+  border-radius: 5px;
+}
+input:active::placeholder {
+  color: red;
 }
 .email-section button {
   background-color: hsl(234, 29%, 20%);
@@ -84,20 +97,62 @@ body {
   cursor: pointer;
   border-radius: 5px;
 }
+.error-message {
+  display: none;
+}
+.error-message.active {
+  display: block;
+  color: red;
+  font-size: 0.8rem;
+  text-align: right;
+}
+.title-and-error {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 .allCheckMarks {
   margin-bottom: 20px;
 }
 
-.successMessege.active {
+.successMessege {
   display: none;
 }
 
-.successMessege {
+.successMessege.active {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   background-color: white;
   position: absolute;
-  text-align: center;
   z-index: 3;
+  height: auto;
+  width: 40vw;
+  padding: 30px 30px;
+  border-radius: 20px;
+}
+.successMessege h1 {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  margin: 20px 0 0 0;
+}
+.successMessege p {
+  font-size: clamp(0.8rem, 2vw, 1.2rem);
+}
+.successMessege .success-icon {
+  height: 50px;
+  width: 50px;
+}
+.successMessege .dismiss {
+  margin-top: 20px;
+  background-color: hsl(234, 29%, 20%);
+  color: white;
+  height: 40px;
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
 }
 
 @media (max-width: 500px) {
@@ -110,9 +165,9 @@ body {
     padding: 0;
   }
   .sign-up-box img {
-    position: sticky;
     content: url("assets/images/illustration-sign-up-mobile.svg");
-    height: 49vh;
+    position: sticky;
+    height: 40vh;
     width: 100vw;
     border-radius: 0;
     max-width: 100%;
@@ -139,5 +194,24 @@ body {
     content: none;
     height: 20px;
     width: 20px;
+  }
+  .successMessege.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: white;
+    position: static;
+    z-index: 3;
+    height: 100vh;
+    width: 100vw;
+    border-radius: none;
+  }
+  .successMessege h1 {
+    font-size: clamp(1.5rem, 8vw, 2.5rem);
+    margin: 20px 0 0 0;
+  }
+  .successMessege p {
+    font-size: clamp(0.9rem, 4vw, 1.3rem);
   }
 }
